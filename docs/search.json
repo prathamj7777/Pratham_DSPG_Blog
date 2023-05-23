@@ -7,11 +7,18 @@
     "text": "Week 1 progress\n\nIn first week we did make a presentation on the data set provide about the airport.\nWe made a introduction presentation And we presented it.\nI completed python data camp\nI also worked on R but did not complete the data camp\nI also completed tidyverse part 1 where we learnt about Data Retrieval,Filtering and manipulating data and also Reporting and Visualization.\n\n\nprint(\"Hello\")\n\n[1] \"Hello\"\n\n\n\nlibrary(dplyr)"
   },
   {
+    "objectID": "posts/Pratham-Jadhav-Week-Two/Pratham-Week-Two.html",
+    "href": "posts/Pratham-Jadhav-Week-Two/Pratham-Week-Two.html",
+    "title": "Week Two Blog",
+    "section": "",
+    "text": "Week 2 progress\n\nIn second Week I learnt about Github\nI installed and used Github\nAnd we were givien task to make repository and blogs about what we did till now in DSPG program\n\n\n\nprint(\"Hello\")\n\n[1] \"Hello\"\n\n\n\nlibrary(dplyr)"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Pratham_DSPG_Blog",
     "section": "",
-    "text": "Week One Blog\n\n\n\n\n\n\n\n\n\n\n\n\nMay 23, 2023\n\n\nPratham Jadhav\n\n\n\n\n\n\nNo matching items"
+    "text": "Week One Blog\n\n\n\n\n\n\n\n\n\n\n\n\nMay 23, 2023\n\n\nPratham Jadhav\n\n\n\n\n\n\n\n\nWeek Two Blog\n\n\n\n\n\n\n\n\n\n\n\n\nMay 23, 2023\n\n\nPratham Jadhav\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",

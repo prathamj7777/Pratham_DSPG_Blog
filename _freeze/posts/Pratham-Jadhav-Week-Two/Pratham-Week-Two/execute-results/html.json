@@ -1,0 +1,14 @@
+{
+  "hash": "833c620d0c49d393ca692c204ab7edaa",
+  "result": {
+    "markdown": "---\ntitle: \"Week Two Blog\"\nauthor: \"Pratham Jadhav\"\ndate: \"2023-05-23\"\ncategory: \"Week Two\"\n---\n\n\n# Week 2 progress\n\n1.  In second Week I learnt about Github\n\n2.  I installed and used Github\n\n3.  And we were givien task to make repository and blogs about what we did till now in DSPG program\n\n4.  \n\n\n::: {.cell}\n\n```{.r .cell-code}\nprint(\"Hello\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"Hello\"\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(dplyr)\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

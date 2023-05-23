@@ -1,0 +1,25 @@
+---
+title: "Week Two Blog"
+author: "Pratham Jadhav"
+date: "2023-05-23"
+category: "Week Two"
+---
+
+# Week 2 progress
+
+1.  In second Week I learnt about Github
+
+2.  I installed and used Github
+
+3.  And we were givien task to make repository and blogs about what we did till now in DSPG program
+
+4.  
+
+```{r}
+print("Hello")
+```
+
+```{r,warning=FALSE, message=FALSE}
+library(dplyr)
+
+```
