@@ -1,0 +1,19 @@
+---
+title: "Week One Blog"
+author: "Pratham Jadhav"
+date: "2023-05-23"
+category: "Week one"
+---
+
+# I'm currently very dehydrated
+
+This is *not* a heading
+
+```{r}
+print("Hello")
+```
+```{r,warning=FALSE, message=FALSE}
+library(dplyr)
+
+```
+
