@@ -5,15 +5,23 @@ date: "2023-05-23"
 category: "Week one"
 ---
 
-# I'm currently very dehydrated
+# Week 1 progress
 
-This is *not* a heading
+1.  In first week we did make a presentation on the data set provide about the airport.
+
+2.  We made a introduction presentation And we presented it.
+
+3.  I completed python data camp
+
+4.  I also worked on R but did not complete the data camp
+
+5.  I also completed tidyverse part 1 where we learnt about Data Retrieval,Filtering and manipulating data and also Reporting and Visualization.
 
 ```{r}
 print("Hello")
 ```
+
 ```{r,warning=FALSE, message=FALSE}
 library(dplyr)
 
 ```
-
