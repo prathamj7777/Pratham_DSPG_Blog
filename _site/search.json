@@ -14,6 +14,13 @@
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
+    "objectID": "posts/Pratham-Jadhav-Week-One/Pratham-Week-One.html",
+    "href": "posts/Pratham-Jadhav-Week-One/Pratham-Week-One.html",
+    "title": "Week One Blog",
+    "section": "",
+    "text": "I’m currently very dehydrated\nThis is not a heading\n\nprint(\"Hello\")\n\n[1] \"Hello\"\n\n\n\nlibrary(dplyr)"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Pratham_DSPG_Blog",
@@ -26,12 +33,5 @@
     "title": "About",
     "section": "",
     "text": "About this blog"
-  },
-  {
-    "objectID": "posts/Pratham-Jadhav-Week-One/Pratham-Week-One.html",
-    "href": "posts/Pratham-Jadhav-Week-One/Pratham-Week-One.html",
-    "title": "Week One Blog",
-    "section": "",
-    "text": "I’m currently very dehydrated\nThis is not a heading\n\nprint(\"Hello\")\n\n[1] \"Hello\"\n\n\n\nlibrary(dplyr)"
   }
 ]
