@@ -4,7 +4,7 @@
     "href": "posts/Pratham-Jadhav-Week-One/Pratham-Week-One.html",
     "title": "Week One Blog",
     "section": "",
-    "text": "I’m currently very dehydrated\nThis is not a heading\n\nprint(\"Hello\")\n\n[1] \"Hello\"\n\n\n\nlibrary(dplyr)"
+    "text": "Week 1 progress\n\nIn first week we did make a presentation on the data set provide about the airport.\nWe made a introduction presentation And we presented it.\nI completed python data camp\nI also worked on R but did not complete the data camp\nI also completed tidyverse part 1 where we learnt about Data Retrieval,Filtering and manipulating data and also Reporting and Visualization.\n\n\nprint(\"Hello\")\n\n[1] \"Hello\"\n\n\n\nlibrary(dplyr)"
   },
   {
     "objectID": "index.html",

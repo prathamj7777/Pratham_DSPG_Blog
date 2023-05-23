@@ -1,7 +1,7 @@
 {
-  "hash": "2191466804c347d84b38b40f96a8d2f5",
+  "hash": "27d69f648067d4c2101d89685dfe7c92",
   "result": {
-    "markdown": "---\ntitle: \"Week One Blog\"\nauthor: \"Pratham Jadhav\"\ndate: \"2023-05-23\"\ncategory: \"Week one\"\n---\n\n\n# I'm currently very dehydrated\n\nThis is *not* a heading\n\n\n::: {.cell}\n\n```{.r .cell-code}\nprint(\"Hello\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"Hello\"\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(dplyr)\n```\n:::\n",
+    "markdown": "---\ntitle: \"Week One Blog\"\nauthor: \"Pratham Jadhav\"\ndate: \"2023-05-23\"\ncategory: \"Week one\"\n---\n\n\n# Week 1 progress\n\n1.  In first week we did make a presentation on the data set provide about the airport.\n\n2.  We made a introduction presentation And we presented it.\n\n3.  I completed python data camp\n\n4.  I also worked on R but did not complete the data camp\n\n5.  I also completed tidyverse part 1 where we learnt about Data Retrieval,Filtering and manipulating data and also Reporting and Visualization.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nprint(\"Hello\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"Hello\"\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(dplyr)\n```\n:::\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
