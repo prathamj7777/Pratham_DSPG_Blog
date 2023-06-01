@@ -1,0 +1,14 @@
+{
+  "hash": "70222b16aca45bf0cb96372d3e13c577",
+  "result": {
+    "markdown": "---\ntitle: \"Week Three Blog\"\nauthor: \"Pratham Jadhav\"\ndate: \"2023-06-01\"\ncategory: \"Week Three\"\n---\n\n\n#Week 3\n\n1.In week 3 we started working on are project about collecting data about tomatoes,Eggs and Bacon\n\n2.We started working of web scraping in python\n\n![](images/Screen%20Shot%202023-06-01%20at%203.08.46%20PM.png)\n\n![](images/Screen%20Shot%202023-06-01%20at%203.01.53%20PM.png)\n\n\n::: {.cell}\n\n```{.r .cell-code}\nprint(\"Hello\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"Hello\"\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(dplyr)\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

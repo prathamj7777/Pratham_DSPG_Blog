@@ -1,0 +1,25 @@
+---
+title: "Week Three Blog"
+author: "Pratham Jadhav"
+date: "2023-06-01"
+category: "Week Three"
+---
+
+#Week 3
+
+1.In week 3 we started working on are project about collecting data about tomatoes,Eggs and Bacon
+
+2.We started working of web scraping in python
+
+![](images/Screen%20Shot%202023-06-01%20at%203.08.46%20PM.png)
+
+![](images/Screen%20Shot%202023-06-01%20at%203.01.53%20PM.png)
+
+```{r}
+print("Hello")
+```
+
+```{r,warning=FALSE, message=FALSE}
+library(dplyr)
+
+```
