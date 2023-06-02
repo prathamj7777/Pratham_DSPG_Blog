@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "Pratham_DSPG_Blog",
     "section": "",
-    "text": "Week Three Blog\n\n\n\n\n\n\n\n\n\n\n\n\nJun 1, 2023\n\n\nPratham Jadhav\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek One Blog\n\n\n\n\n\n\n\n\n\n\n\n\nMay 23, 2023\n\n\nPratham Jadhav\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek Two Blog\n\n\n\n\n\n\n\n\n\n\n\n\nMay 23, 2023\n\n\nPratham Jadhav\n\n\n\n\n\n\nNo matching items"
+    "text": "Week Three Blog\n\n\n\n\n\n\n\n\n\n\n\n\nJun 1, 2023\n\n\nPratham Jadhav\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek One Blog\n\n\n\n\n\n\n\n\n\n\n\n\nMay 23, 2023\n\n\nPratham Jadhav\n\n\n\n\n\n\n  \n\n\n\n\nWeek Two Blog\n\n\n\n\n\n\n\n\n\n\n\n\nMay 23, 2023\n\n\nPratham Jadhav\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -32,6 +32,6 @@
     "href": "posts/Pratham-Jadhav-Week-Two/Pratham-week-3/Pratham-Week-Three.html",
     "title": "Week Three Blog",
     "section": "",
-    "text": "#Week 3\n1.In week 3 we started working on are project about collecting data about tomatoes,Eggs and Bacon\n2.We started working of web scraping in python\n\n\n\nprint(\"Hello\")\n\n[1] \"Hello\"\n\n\n\nlibrary(dplyr)"
+    "text": "#Week 3\n1.In week 3 we started working on are project about collecting data about tomatoes,Eggs and Bacon\n2.We started working of web scraping in python"
   }
 ]

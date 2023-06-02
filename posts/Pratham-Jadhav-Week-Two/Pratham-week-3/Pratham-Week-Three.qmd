@@ -11,15 +11,6 @@ category: "Week Three"
 
 2.We started working of web scraping in python
 
-![](images/Screen%20Shot%202023-06-01%20at%203.08.46%20PM.png)
+![](images/Screen%20Shot%202023-06-01%20at%203.04.41%20PM.png)
 
-![](images/Screen%20Shot%202023-06-01%20at%203.01.53%20PM.png)
-
-```{r}
-print("Hello")
-```
-
-```{r,warning=FALSE, message=FALSE}
-library(dplyr)
-
-```
+![](images/Screen%20Shot%202023-06-01%20at%203.01.41%20PM.png)

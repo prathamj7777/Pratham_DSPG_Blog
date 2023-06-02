@@ -13,7 +13,15 @@ category: "Week Two"
 
 3.  And we were givien task to make repository and blogs about what we did till now in DSPG program
 
-4.  
+WEEK 3
+
+1.In week 3 we started working on are project about collecting data about tomatoes,Eggs and Bacon
+
+2.We started working of web scraping in python
+
+![](images/Screen%20Shot%202023-06-01%20at%203.08.46%20PM.png)
+
+![](images/Screen%20Shot%202023-06-01%20at%203.01.53%20PM.png)
 
 ```{r}
 print("Hello")
