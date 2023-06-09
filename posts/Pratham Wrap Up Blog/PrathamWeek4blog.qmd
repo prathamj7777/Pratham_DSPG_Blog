@@ -5,17 +5,17 @@ date: "2023-06-08"
 category: "Week four"
 ---
 
-![]()
-
 # WEEK Four Wrap Up Blog
 
 ## **About Our Project**
 
+![](images/MicrosoftTeams-image%20(26).png)
+
 ### **Title**: 
 
-"MarketMinds" : Innovating local Food Pricing Strategies through AI and Predictive Analytics
+#### "MarketMinds" : Innovating local Food Pricing Strategies through AI and Predictive Analytics
 
-### **overview:** 
+### **Overview:** 
 
 -   The project aims to address the need for localized and up-to-date demand forecasting information for Iowa's local food producers.  
 
