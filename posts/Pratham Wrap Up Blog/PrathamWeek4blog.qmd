@@ -9,6 +9,82 @@ category: "Week four"
 
 # WEEK Four Wrap Up Blog
 
+## **About Our Project**
+
+### **Title**: 
+
+"MarketMinds" : Innovating local Food Pricing Strategies through AI and Predictive Analytics
+
+### **overview:** 
+
+-   The project aims to address the need for localized and up-to-date demand forecasting information for Iowa's local food producers.  
+
+-   By combining data and utilizing AI, the project seeks to develop a prototype application that will provide valuable insights to aid producers in making informed decisions about pricing, crop planning, and value-added processing. 
+
+-    Over the course of three years, the project will progressively build upon previous work, incorporating data from various sources such as historical sales, weather patterns, and market trends.  
+
+```{=html}
+<!-- -->
+```
+-   The ultimate goal is to create a user-friendly tool that empowers farmers with the best information available for improving their local food business and making it more sustainable. 
+
+    ### Problem Statement :
+
+    \"The primary issue at hand is the lack of reliable demand information for local food producers in Iowa, which poses significant challenges in setting optimal prices and planning their operations effectively.\" 
+
+Putting in simple words
+
+\"Iowa's local food producers lack reliable demand information, hindering their pricing and planning decisions. Our project uses AI and data analysis to develop an app that helps farmers forecast demand by considering sales history, weather, and local events. We aim to empower farmers with better decision-making tools and enhance the availability of local food in Iowa.\" 
+
+###     What we plan to do:
+
+-    In response, our project employs cutting-edge artificial intelligence and advanced data analysis techniques to develop a sophisticated application.  
+
+-   This application serves as a valuable tool for farmers, enabling them to make accurate demand forecasts by considering critical factors such as historical sales data, weather patterns, and local events.  
+
+```{=html}
+<!-- -->
+```
+-   By equipping farmers with enhanced decision-making capabilities, our goal is to empower them and facilitate the wider availability of locally produced food across Iowa. 
+
+    ### How we plan to do:
+
+    **Timeline/roadmap of the project**
+
+![](images/Screen%20Shot%202023-06-08%20at%204.10.18%20PM-02.png)
+
+The above picture shows an overall plan for entire 8 week that we plan to work. Since the first 2 weeks were involved in training, much detailed picture of this from week 3 (after training) can be seen below.
+
+![](images/Screen%20Shot%202023-06-09%20at%208.32.52%20AM.png)
+
+### How we are planning on proceeding from here: 
+
+-   **Week 4 (Current Week): Data Collection and Preprocessing** 
+
+During this week, the team is focused on collecting the necessary data from identified sources. The collected data will undergo preprocessing tasks such as cleaning, transforming, and formatting to ensure its suitability for analysis and modeling. 
+
+-   **Week 5 (Next Week): Exploratory Data Analysis and Feature Engineering** 
+
+In the upcoming week, the team will perform exploratory data analysis to gain insights into the collected data. Statistical techniques and visualization methods will be employed to understand the distribution, patterns, and relationships within the data. Feature engineering techniques will also be applied to extract relevant features and create new variables that enhance the predictive power of the model. 
+
+-   **Week 6: Model Development - Building and Training the Machine Learning Model** 
+
+Following the exploratory data analysis, the team will move on to developing the machine learning model for demand forecasting. Suitable algorithms will be selected based on the problem's nature and the available data. The chosen model(s) will be implemented and trained using the preprocessed data, with model parameters fine-tuned for optimal performance. 
+
+-   **Week 7: Model Evaluation, Fine-tuning, and Validation** 
+
+During this phase, the trained models will be rigorously evaluated to measure their performance and predictive capabilities. Various evaluation metrics will be calculated to assess the model's effectiveness. The team will further fine-tune the model, adjusting parameters or exploring ensemble techniques to improve its performance. Validation techniques, such as holdout sets or cross-validation, will be employed to ensure the model's generalizability and reliability. 
+
+-   **Week 8: Final Testing, Presentation Preparation, and Documentation** 
+
+In the final week, the developed model will undergo thorough testing to ensure its stability and accuracy in predicting demand for local food products. The team will prepare a comprehensive presentation summarizing the project's objectives, methodology, findings, and recommendations. Documentation of the project, including the data collection process, preprocessing steps, modeling techniques, and results, will also be completed. 
+
+These future and next steps will allow the team to progress through the remaining weeks, effectively building and evaluating the machine learning model for demand forecasting in the local food industry. 
+
+### **Future scope:**
+
+The future scope of the project lies in expanding the application's capabilities, incorporating additional data sources, refining the machine learning models, and fostering collaboration within the local food ecosystem. By continually improving and adapting the solution, the project can contribute to the sustainable growth and success of Iowa's local food producers. 
+
 ![](images/MicrosoftTeams-image%20(16).png){width="394"}
 
 ### **Dev's Work**
@@ -31,11 +107,13 @@ category: "Week four"
 
 ![](images/Screen%20Shot%202023-06-01%20at%203.01.40%20PM-01.png)
 
-Recahed out to
+Recahed out to all CSAs and local farms to collect more of the data that could be utolized for our project
 
 ![](images/MicrosoftTeams-image%20(23).png)
 
 ![](images/MicrosoftTeams-image%20(19).png)
+
+Some of the data collection
 
 ![](images/MicrosoftTeams-image%20(20).png)
 
@@ -857,88 +935,3 @@ spider.tomatoFrame.to_csv(currentDate + "Hyvee Heirloom Tomatoes.csv")
 ![](images/MicrosoftTeams-image%20(7).png)
 
 ![](images/MicrosoftTeams-image%20(11).png)
-
--   **\
-    About Our Project**
-
-### **Title**: 
-
-"MarketMinds" : Innovating local Food Pricing Strategies through AI and Predictive Analytics
-
-### **overview:** 
-
--   The project aims to address the need for localized and up-to-date demand forecasting information for Iowa's local food producers.  
-
--   By combining data and utilizing AI, the project seeks to develop a prototype application that will provide valuable insights to aid producers in making informed decisions about pricing, crop planning, and value-added processing. 
-
--    Over the course of three years, the project will progressively build upon previous work, incorporating data from various sources such as historical sales, weather patterns, and market trends.  
-
-```{=html}
-<!-- -->
-```
--   The ultimate goal is to create a user-friendly tool that empowers farmers with the best information available for improving their local food business and making it more sustainable. 
-
-    ### Problem Statement :
-
-    \"The primary issue at hand is the lack of reliable demand information for local food producers in Iowa, which poses significant challenges in setting optimal prices and planning their operations effectively.\" 
-
-Putting in simple words
-
-\"Iowa's local food producers lack reliable demand information, hindering their pricing and planning decisions. Our project uses AI and data analysis to develop an app that helps farmers forecast demand by considering sales history, weather, and local events. We aim to empower farmers with better decision-making tools and enhance the availability of local food in Iowa.\" 
-
-###     What we plan to do:
-
--    In response, our project employs cutting-edge artificial intelligence and advanced data analysis techniques to develop a sophisticated application.  
-
--   This application serves as a valuable tool for farmers, enabling them to make accurate demand forecasts by considering critical factors such as historical sales data, weather patterns, and local events.  
-
-```{=html}
-<!-- -->
-```
--   By equipping farmers with enhanced decision-making capabilities, our goal is to empower them and facilitate the wider availability of locally produced food across Iowa. 
-
-    ### How we plan to do:
-
-    **Timeline/roadmap of the project**
-
-![](images/Screen%20Shot%202023-06-08%20at%204.10.18%20PM-02.png)
-
-The above picture shows an overall plan for entire 8 week that we plan to work. Since the first 2 weeks were involved in training, much detailed picture of this from week 3 (after training) can be seen below.
-
-![](images/Screen%20Shot%202023-06-09%20at%208.32.52%20AM.png)
-
--   Week 4 (Current Week): Data Collection and Preprocessing 
-
-During this week, the team is focused on collecting the necessary data from identified sources. The collected data will undergo preprocessing tasks such as cleaning, transforming, and formatting to ensure its suitability for analysis and modeling. 
-
--   Week 5 (Next Week): Exploratory Data Analysis and Feature Engineering 
-
-In the upcoming week, the team will perform exploratory data analysis to gain insights into the collected data. Statistical techniques and visualization methods will be employed to understand the distribution, patterns, and relationships within the data. Feature engineering techniques will also be applied to extract relevant features and create new variables that enhance the predictive power of the model. 
-
--   Week 6: Model Development - Building and Training the Machine Learning Model 
-
-Following the exploratory data analysis, the team will move on to developing the machine learning model for demand forecasting. Suitable algorithms will be selected based on the problem's nature and the available data. The chosen model(s) will be implemented and trained using the preprocessed data, with model parameters fine-tuned for optimal performance. 
-
- 
-
--   Week 7: Model Evaluation, Fine-tuning, and Validation 
-
-During this phase, the trained models will be rigorously evaluated to measure their performance and predictive capabilities. Various evaluation metrics will be calculated to assess the model's effectiveness. The team will further fine-tune the model, adjusting parameters or exploring ensemble techniques to improve its performance. Validation techniques, such as holdout sets or cross-validation, will be employed to ensure the model's generalizability and reliability. 
-
- 
-
--   Week 8: Final Testing, Presentation Preparation, and Documentation 
-
-In the final week, the developed model will undergo thorough testing to ensure its stability and accuracy in predicting demand for local food products. The team will prepare a comprehensive presentation summarizing the project's objectives, methodology, findings, and recommendations. Documentation of the project, including the data collection process, preprocessing steps, modeling techniques, and results, will also be completed. 
-
- 
-
-These future and next steps will allow the team to progress through the remaining weeks, effectively building and evaluating the machine learning model for demand forecasting in the local food industry. 
-
- 
-
- 
-
-**Future scope:**  
-
-the future scope of the project lies in expanding the application's capabilities, incorporating additional data sources, refining the machine learning models, and fostering collaboration within the local food ecosystem. By continually improving and adapting the solution, the project can contribute to the sustainable growth and success of Iowa's local food producers. 
