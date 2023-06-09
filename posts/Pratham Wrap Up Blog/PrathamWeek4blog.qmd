@@ -9,73 +9,57 @@ category: "Week four"
 
 # WEEK Four Wrap Up Blog
 
-Dev's Work
+![](images/MicrosoftTeams-image%20(16).png){width="394"}
 
-Monday- Collecting data for the project and working on finding data sources for Heirloom Tomatoes.
+### **Dev's Work**
 
-Tuesday- Collected in person data at Slater to analyze the housing conditions and amenities there in the first half of the day. Second half was remote where I worked on compiling and cleaning the data.
+**Monday**- Collecting data for the project and working on finding data sources for Heirloom Tomatoes.
 
-Wednesday- Created a script which cleaned scraped prices from Fareway Market website for locations Ames, Fort Dodge, Davenport, Iowa City, New Hampton, Clear Lake, Sioux City, Shenandoah in Iowa.
+**Tuesday**- Collected in person data at Slater to analyze the housing conditions and amenities there in the first half of the day. Second half was remote where I worked on compiling and cleaning the data.
 
-Thursday- Worked to get more data output, discussed presentation and blog wrap ups with team.
+**Wednesday**- Created a script which cleaned scraped prices from Fareway Market website for locations Ames, Fort Dodge, Davenport, Iowa City, New Hampton, Clear Lake, Sioux City, Shenandoah in Iowa.
 
- Project overview  
+**Thursday**- Worked to get more data output, discussed presentation and blog wrap ups with team.
 
- 
+![](images/Screen%20Shot%202023-06-09%20at%208.14.25%20AM.png)
 
--   The project aims to address the need for localized and up-to-date demand forecasting information for Iowa's local food producers.  
+### **Pratham's work:**
 
--   By combining data and utilizing AI, the project seeks to develop a prototype application that will provide valuable insights to aid producers in making informed decisions about pricing, crop planning, and value-added processing. 
+-   Collected data from the grocers that are small business and do not have much online presence.
 
--    Over the course of three years, the project will progressively build upon previous work, incorporating data from various sources such as historical sales, weather patterns, and market trends.  
+-   Reached out to them via email and phone and collected data that can be seen below
 
-```{=html}
-<!-- -->
-```
--   The ultimate goal is to create a user-friendly tool that empowers farmers with the best information available for improving their local food business and making it more sustainable. 
+![](images/Screen%20Shot%202023-06-01%20at%203.01.40%20PM-01.png)
 
- ![](images/MicrosoftTeams-image%20(2).png)
+Recahed out to
 
-Pratham's work
+![](images/MicrosoftTeams-image%20(23).png)
 
-2.  problem statement:  
+![](images/MicrosoftTeams-image%20(19).png)
 
--   \"The primary issue at hand is the lack of reliable demand information for local food producers in Iowa, which poses significant challenges in setting optimal prices and planning their operations effectively.\" 
+![](images/MicrosoftTeams-image%20(20).png)
 
- 
+![](images/MicrosoftTeams-image%20(21).png)
 
-\"Iowa's local food producers lack reliable demand information, hindering their pricing and planning decisions. Our project uses AI and data analysis to develop an app that helps farmers forecast demand by considering sales history, weather, and local events. We aim to empower farmers with better decision-making tools and enhance the availability of local food in Iowa.\" 
+### Aaron's Work
 
- 
+-   Worked on web scraping the websites collected for the project. Specifically worked on building spiders for all the websites.
 
--    In response, our project employs cutting-edge artificial intelligence and advanced data analysis techniques to develop a sophisticated application.  
+-   The scraper for Fresh Thyme Market using scrapy python package can be seen below\
 
--   This application serves as a valuable tool for farmers, enabling them to make accurate demand forecasts by considering critical factors such as historical sales data, weather patterns, and local events.  
+    \`\`\`{python}\
 
-```{=html}
-<!-- -->
-```
--   By equipping farmers with enhanced decision-making capabilities, our goal is to empower them and facilitate the wider availability of locally produced food across Iowa. 
+    #\| eval = false in the chunk.\
 
-![](images/Screen%20Shot%202023-06-01%20at%203.01.40%20PM.png)
+    from datetime import datetime\
 
-![](images/Screen%20Shot%202023-06-08%20at%204.10.18%20PM-02.png)Aaron's Work
+    import pandas as pd\
 
-This is the scraper for Fresh Thyme Market using scrapy python package\
+    import scrapy\
 
-\`\`\`{python}\
+    from scrapy.crawler import CrawlerProcess\
 
-#\| eval = false in the chunk.\
-
-from datetime import datetime\
-
-import pandas as pd\
-
-import scrapy\
-
-from scrapy.crawler import CrawlerProcess\
-
-from scrapy.utils.log import configure_logging
+    from scrapy.utils.log import configure_logging
 
  
 
@@ -873,6 +857,55 @@ spider.tomatoFrame.to_csv(currentDate + "Hyvee Heirloom Tomatoes.csv")
 ![](images/MicrosoftTeams-image%20(7).png)
 
 ![](images/MicrosoftTeams-image%20(11).png)
+
+-   **\
+    About Our Project**
+
+### **Title**: 
+
+"MarketMinds" : Innovating local Food Pricing Strategies through AI and Predictive Analytics
+
+### **overview:** 
+
+-   The project aims to address the need for localized and up-to-date demand forecasting information for Iowa's local food producers.  
+
+-   By combining data and utilizing AI, the project seeks to develop a prototype application that will provide valuable insights to aid producers in making informed decisions about pricing, crop planning, and value-added processing. 
+
+-    Over the course of three years, the project will progressively build upon previous work, incorporating data from various sources such as historical sales, weather patterns, and market trends.  
+
+```{=html}
+<!-- -->
+```
+-   The ultimate goal is to create a user-friendly tool that empowers farmers with the best information available for improving their local food business and making it more sustainable. 
+
+    ### Problem Statement :
+
+    \"The primary issue at hand is the lack of reliable demand information for local food producers in Iowa, which poses significant challenges in setting optimal prices and planning their operations effectively.\" 
+
+Putting in simple words
+
+\"Iowa's local food producers lack reliable demand information, hindering their pricing and planning decisions. Our project uses AI and data analysis to develop an app that helps farmers forecast demand by considering sales history, weather, and local events. We aim to empower farmers with better decision-making tools and enhance the availability of local food in Iowa.\" 
+
+###     What we plan to do:
+
+-    In response, our project employs cutting-edge artificial intelligence and advanced data analysis techniques to develop a sophisticated application.  
+
+-   This application serves as a valuable tool for farmers, enabling them to make accurate demand forecasts by considering critical factors such as historical sales data, weather patterns, and local events.  
+
+```{=html}
+<!-- -->
+```
+-   By equipping farmers with enhanced decision-making capabilities, our goal is to empower them and facilitate the wider availability of locally produced food across Iowa. 
+
+    ### How we plan to do:
+
+    **Timeline/roadmap of the project**
+
+![](images/Screen%20Shot%202023-06-08%20at%204.10.18%20PM-02.png)
+
+The above picture shows an overall plan for entire 8 week that we plan to work. Since the first 2 weeks were involved in training, much detailed picture of this from week 3 (after training) can be seen below.
+
+![](images/Screen%20Shot%202023-06-09%20at%208.32.52%20AM.png)
 
 -   Week 4 (Current Week): Data Collection and Preprocessing 
 
