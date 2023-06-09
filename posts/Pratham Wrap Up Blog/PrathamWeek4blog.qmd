@@ -1,0 +1,913 @@
+---
+title: "Week four Wrap up"
+author: "Pratham Jadhav"
+date: "2023-06-08"
+category: "Week four"
+---
+
+![]()
+
+# WEEK Four Wrap Up Blog
+
+Dev's Work
+
+Monday- Collecting data for the project and working on finding data sources for Heirloom Tomatoes.
+
+Tuesday- Collected in person data at Slater to analyze the housing conditions and amenities there in the first half of the day. Second half was remote where I worked on compiling and cleaning the data.
+
+Wednesday- Created a script which cleaned scraped prices from Fareway Market website for locations Ames, Fort Dodge, Davenport, Iowa City, New Hampton, Clear Lake, Sioux City, Shenandoah in Iowa.
+
+Thursday- Worked to get more data output, discussed presentation and blog wrap ups with team.
+
+ Project overview  
+
+ 
+
+-   The project aims to address the need for localized and up-to-date demand forecasting information for Iowa's local food producers.  
+
+-   By combining data and utilizing AI, the project seeks to develop a prototype application that will provide valuable insights to aid producers in making informed decisions about pricing, crop planning, and value-added processing. 
+
+-    Over the course of three years, the project will progressively build upon previous work, incorporating data from various sources such as historical sales, weather patterns, and market trends.  
+
+```{=html}
+<!-- -->
+```
+-   The ultimate goal is to create a user-friendly tool that empowers farmers with the best information available for improving their local food business and making it more sustainable. 
+
+ ![](images/MicrosoftTeams-image%20(2).png)
+
+Pratham's work
+
+2.  problem statement:  
+
+-   \"The primary issue at hand is the lack of reliable demand information for local food producers in Iowa, which poses significant challenges in setting optimal prices and planning their operations effectively.\" 
+
+ 
+
+\"Iowa's local food producers lack reliable demand information, hindering their pricing and planning decisions. Our project uses AI and data analysis to develop an app that helps farmers forecast demand by considering sales history, weather, and local events. We aim to empower farmers with better decision-making tools and enhance the availability of local food in Iowa.\" 
+
+ 
+
+-    In response, our project employs cutting-edge artificial intelligence and advanced data analysis techniques to develop a sophisticated application.  
+
+-   This application serves as a valuable tool for farmers, enabling them to make accurate demand forecasts by considering critical factors such as historical sales data, weather patterns, and local events.  
+
+```{=html}
+<!-- -->
+```
+-   By equipping farmers with enhanced decision-making capabilities, our goal is to empower them and facilitate the wider availability of locally produced food across Iowa. 
+
+![](images/Screen%20Shot%202023-06-01%20at%203.01.40%20PM.png)
+
+![](images/Screen%20Shot%202023-06-08%20at%204.11.05%20PM-01.png)
+
+Aaron's Work
+
+This is the scraper for Fresh Thyme Market using scrapy python package\
+
+\`\`\`{python}\
+
+#\|eval=FALSE\
+
+from datetime import datetime\
+
+import pandas as pd\
+
+import scrapy\
+
+from scrapy.crawler import CrawlerProcess\
+
+from scrapy.utils.log import configure_logging
+
+ 
+
+class FreshThymeSpider(scrapy.Spider):\
+
+    name = 'Fresh Thyme Market Spider'
+
+ 
+
+    def start_requests( self ):\
+
+        #Bacon Scraper part\
+
+        bacon_urls = \['[https://ww2.freshthyme.com/sm/planning/rsid/951/results?q=Bacon&take=48&f=Category%3AHot+Dogs%2C+Bacon+%26+Sausage'](https://ww2.freshthyme.com/sm/planning/rsid/951/results?q=Bacon&take=48&f=Category%3AHot+Dogs%2C+Bacon+%26+Sausage%27 "https://ww2.freshthyme.com/sm/planning/rsid/951/results?q=bacon&take=48&f=category%3ahot+dogs%2c+bacon+%26+sausage%27"),\
+
+                      '[https://ww2.freshthyme.com/sm/planning/rsid/952/results?q=Bacon&take=48&f=Category%3AHot+Dogs%2C+Bacon+%26+Sausage'\]](https://ww2.freshthyme.com/sm/planning/rsid/952/results?q=Bacon&take=48&f=Category%3AHot+Dogs%2C+Bacon+%26+Sausage%27] "https://ww2.freshthyme.com/sm/planning/rsid/952/results?q=bacon&take=48&f=category%3ahot+dogs%2c+bacon+%26+sausage%27]")\
+
+        for url in bacon_urls:\
+
+            yield scrapy.Request( url = url, callback = self.cardsParse, meta={'type': 'bacon', 'url': url})
+
+ 
+
+        #Egg Scraper part\
+
+        egg_urls = \['[https://ww2.freshthyme.com/sm/planning/rsid/951/results?q=Eggs&take=48&f=Category%3AEggs'](https://ww2.freshthyme.com/sm/planning/rsid/951/results?q=Eggs&take=48&f=Category%3AEggs%27 "https://ww2.freshthyme.com/sm/planning/rsid/951/results?q=eggs&take=48&f=category%3aeggs%27"),\
+
+                      '[https://ww2.freshthyme.com/sm/planning/rsid/952/results?q=Eggs&take=48&f=Category%3AEggs'\]](https://ww2.freshthyme.com/sm/planning/rsid/952/results?q=Eggs&take=48&f=Category%3AEggs%27] "https://ww2.freshthyme.com/sm/planning/rsid/952/results?q=eggs&take=48&f=category%3aeggs%27]")\
+
+        for url in egg_urls:\
+
+            yield scrapy.Request( url = url, callback = self.cardsParse, meta={'type': 'egg', 'url': url})
+
+ 
+
+        #Heirloom Tomatoes part\
+
+        tomato_urls = \['[https://ww2.freshthyme.com/sm/planning/rsid/951/results?q=heirloom%20tomatoes'](https://ww2.freshthyme.com/sm/planning/rsid/951/results?q=heirloom%20tomatoes%27 "https://ww2.freshthyme.com/sm/planning/rsid/951/results?q=heirloom%20tomatoes%27"),\
+
+                       '[https://ww2.freshthyme.com/sm/planning/rsid/952/results?q=heirloom%20tomatoes'\]](https://ww2.freshthyme.com/sm/planning/rsid/952/results?q=heirloom%20tomatoes%27] "https://ww2.freshthyme.com/sm/planning/rsid/952/results?q=heirloom%20tomatoes%27]")
+
+ 
+
+        for url in tomato_urls:\
+
+            yield scrapy.Request( url = url, callback = self.cardsParse, meta={'type': 'tomato', 'url': url})
+
+ 
+
+    def cardsParse(self, response):\
+
+        #Failsafe for links\
+
+        try:\
+
+            #grabs the store location\
+
+            storeXpath = '//\*\[contains(\@class,"HeaderSubtitle")\]/text()'\
+
+            store = response.xpath(storeXpath).extract_first()\
+
+            #grabs all cards from list and saves the link to follow\
+
+            xpath = '//\*\[contains(\@class,"Listing")\]/div/a/\@href'\
+
+            listCards = response.xpath(xpath)\
+
+            for url in listCards:\
+
+                yield response.follow( url = url, callback = self.itemParse, meta={'store': store, 'type': response.meta.get('type'), 'url': response.meta.get('url')} )\
+
+        except AttributeError:\
+
+           pass\
+\
+
+    def itemParse(self, response):\
+
+        #xpaths to extract \
+
+        nameXpath = '//\*\[contains(\@class, "PdpInfoTitle")\]/text()'\
+
+        priceXpath = '//\*\[contains(\@class, "PdpMainPrice")\]/text()'\
+
+        unitPriceXpath = '//\*\[contains(\@class, "PdpPreviousPrice")\]/text()'\
+
+        prevPriceXpath = '//\*\[contains(\@class, "PdpUnitPrice")\]/text()'\
+
+        #Adding the data to data frame\
+
+        itemType = response.meta.get('type')\
+
+        if(itemType == "bacon"):\
+
+            baconFrame.loc\[len(baconFrame)\] = \[response.xpath(nameXpath).extract_first(),\
+
+                                               response.xpath(priceXpath).extract_first(), \
+
+                                               response.xpath(unitPriceXpath).extract_first(), \
+
+                                               response.xpath(prevPriceXpath).extract_first(), \
+
+                                               response.meta.get('store'),\
+
+                                               response.meta.get('url')\]\
+
+        elif(itemType == "egg"):\
+
+            eggFrame.loc\[len(eggFrame)\] = \[response.xpath(nameXpath).extract_first(),\
+
+                                           response.xpath(priceXpath).extract_first(), \
+
+                                           response.xpath(prevPriceXpath).extract_first(), \
+
+                                           response.meta.get('store'),\
+
+                                           response.meta.get('url')\]\
+
+        elif(itemType == "tomato"):\
+
+            tomatoFrame.loc\[len(tomatoFrame)\] = \[response.xpath(nameXpath).extract_first(),\
+
+                                                 response.xpath(priceXpath).extract_first(), \
+
+                                                 response.xpath(prevPriceXpath).extract_first(), \
+
+                                                 response.meta.get('store'),\
+
+                                                 response.meta.get('url')\]
+
+ 
+
+\# Start\
+
+#DEBUG Switch\
+
+DEBUG = 0
+
+ 
+
+#Data frames\
+
+baconFrame = pd.DataFrame(columns=\['Bacon', 'Current Price', 'Unit Price', 'Sale', 'Store Location', 'Url'\])\
+
+eggFrame = pd.DataFrame(columns=\['Egg', 'Current Price', 'Sale', 'Store Location', 'Url'\])\
+
+tomatoFrame = pd.DataFrame(columns=\['Heirloom Tomato', 'Current Price', 'Sale', 'Store Location', 'Url'\])
+
+ 
+
+if(DEBUG):\
+
+    #To see the inner mechanics of the spider\
+
+    configure_logging()
+
+ 
+
+#This is to start the spider\
+
+process = CrawlerProcess()\
+
+process.crawl(FreshThymeSpider)\
+
+process.start()\
+
+process.stop()
+
+ 
+
+if(DEBUG):\
+
+    #To see the outputs\
+
+    print(baconFrame)\
+
+    print(eggFrame)\
+
+    print(tomatoFrame)
+
+ 
+
+#Adds the date that the data was scraped\
+
+currentDate = str(datetime(datetime.today().year, datetime.today().month, datetime.today().day))\[:-8\]\
+
+#To CSV files\
+
+baconFrame.to_csv(currentDate + "Fresh Thyme Bacon.csv")\
+
+eggFrame.to_csv(currentDate + "Fresh Thyme Egg.csv")\
+
+tomatoFrame.to_csv(currentDate + "Fresh Thyme Heirloom Tomatoes.csv")\
+
+\`\`\`
+
+ 
+
+\
+
+This is the scraper for Hyvee made using selenium python package\
+
+\`\`\`{python}\
+
+#\|eval=FALSE\
+
+#Imports\
+
+from datetime import datetime\
+
+import pandas as pd\
+
+#Imports for Scraping\
+
+from selenium import webdriver\
+
+from selenium.webdriver.firefox.service import Service as FirefoxService\
+
+from webdriver_manager.firefox import GeckoDriverManager\
+
+from selenium.common.exceptions import NoSuchElementException\
+
+from selenium.common.exceptions import StaleElementReferenceException\
+
+from selenium.webdriver.common.by import By\
+
+from selenium.webdriver.support.ui import WebDriverWait\
+
+from selenium.webdriver.support import expected_conditions as EC\
+
+from os import path\
+
+import time
+
+ 
+
+\
+
+class HyveeSpider():\
+
+    name = "Hyvee Spider"\
+
+    baconFrame = pd.DataFrame(columns=\['Bacon', 'Current Price', 'Sale', 'Weight', 'Url'\])\
+
+    eggFrame = pd.DataFrame(columns=\['Egg', 'Current Price', 'Sale', 'Amount', 'Url'\])\
+
+    tomatoFrame = pd.DataFrame(columns=\['Heirloom Tomato', 'Current Price', 'Sale', 'Weight', 'Url'\])\
+\
+
+    def \_\_init\_\_(self):\
+
+        self.driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install(), log_path=path.devnull))\
+
+        self.baconUrls = \['[https://www.hy-vee.com/aisles-online/p/11315/Hormel-Black-Label-Thick-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/11315/Hormel-Black-Label-Thick-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/11315/hormel-black-label-thick-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/47128/Hormel-Black-Label-Fully-Cooked-Original-Thick-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/47128/Hormel-Black-Label-Fully-Cooked-Original-Thick-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/47128/hormel-black-label-fully-cooked-original-thick-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/41626/Applegate-Naturals-Uncured-Sunday-Bacon-Hickory-Smoked'](https://www.hy-vee.com/aisles-online/p/41626/Applegate-Naturals-Uncured-Sunday-Bacon-Hickory-Smoked%27 "https://www.hy-vee.com/aisles-online/p/41626/applegate-naturals-uncured-sunday-bacon-hickory-smoked%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/57278/HyVee-Double-Smoked-Thick-Sliced-Bacon'](https://www.hy-vee.com/aisles-online/p/57278/HyVee-Double-Smoked-Thick-Sliced-Bacon%27 "https://www.hy-vee.com/aisles-online/p/57278/hyvee-double-smoked-thick-sliced-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/2405550/Applegate-Naturals-No-Sugar-Uncured-Bacon-Hickory-Smoked'](https://www.hy-vee.com/aisles-online/p/2405550/Applegate-Naturals-No-Sugar-Uncured-Bacon-Hickory-Smoked%27 "https://www.hy-vee.com/aisles-online/p/2405550/applegate-naturals-no-sugar-uncured-bacon-hickory-smoked%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/57279/HyVee-Sweet-Smoked-Bacon'](https://www.hy-vee.com/aisles-online/p/57279/HyVee-Sweet-Smoked-Bacon%27 "https://www.hy-vee.com/aisles-online/p/57279/hyvee-sweet-smoked-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/11366/Hormel-Black-Label-Original-Bacon'](https://www.hy-vee.com/aisles-online/p/11366/Hormel-Black-Label-Original-Bacon%27 "https://www.hy-vee.com/aisles-online/p/11366/hormel-black-label-original-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/2455081/Jimmy-Dean-Premium-Hickory-Smoked-Bacon'](https://www.hy-vee.com/aisles-online/p/2455081/Jimmy-Dean-Premium-Hickory-Smoked-Bacon%27 "https://www.hy-vee.com/aisles-online/p/2455081/jimmy-dean-premium-hickory-smoked-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/3595492/Farmland-Bacon-Double-Smoked-Double-Thick-Cut'](https://www.hy-vee.com/aisles-online/p/3595492/Farmland-Bacon-Double-Smoked-Double-Thick-Cut%27 "https://www.hy-vee.com/aisles-online/p/3595492/farmland-bacon-double-smoked-double-thick-cut%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/47117/Hormel-Black-Label-Center-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/47117/Hormel-Black-Label-Center-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/47117/hormel-black-label-center-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/57277/HyVee-Center-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/57277/HyVee-Center-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/57277/hyvee-center-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/2199424/Country-Smokehouse-Thick-Applewood-Slab-Bacon'](https://www.hy-vee.com/aisles-online/p/2199424/Country-Smokehouse-Thick-Applewood-Slab-Bacon%27 "https://www.hy-vee.com/aisles-online/p/2199424/country-smokehouse-thick-applewood-slab-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/77228/Hormel-Black-Label-Original-Bacon'](https://www.hy-vee.com/aisles-online/p/77228/Hormel-Black-Label-Original-Bacon%27 "https://www.hy-vee.com/aisles-online/p/77228/hormel-black-label-original-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/21239/Farmland-Naturally-Hickory-Smoked-Classic-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/21239/Farmland-Naturally-Hickory-Smoked-Classic-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/21239/farmland-naturally-hickory-smoked-classic-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/2456254/Jimmy-Dean-Premium-Applewood-Smoked-Bacon'](https://www.hy-vee.com/aisles-online/p/2456254/Jimmy-Dean-Premium-Applewood-Smoked-Bacon%27 "https://www.hy-vee.com/aisles-online/p/2456254/jimmy-dean-premium-applewood-smoked-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/21240/Farmland-Naturally-Hickory-Smoked-Thick-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/21240/Farmland-Naturally-Hickory-Smoked-Thick-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/21240/farmland-naturally-hickory-smoked-thick-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/47159/Hormel-Black-Label-Original-Bacon-4Pk'](https://www.hy-vee.com/aisles-online/p/47159/Hormel-Black-Label-Original-Bacon-4Pk%27 "https://www.hy-vee.com/aisles-online/p/47159/hormel-black-label-original-bacon-4pk%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/50315/Oscar-Mayer-Naturally-Hardwood-Smoked-Bacon'](https://www.hy-vee.com/aisles-online/p/50315/Oscar-Mayer-Naturally-Hardwood-Smoked-Bacon%27 "https://www.hy-vee.com/aisles-online/p/50315/oscar-mayer-naturally-hardwood-smoked-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/50321/Oscar-Mayer-Center-Cut-Original-Bacon'](https://www.hy-vee.com/aisles-online/p/50321/Oscar-Mayer-Center-Cut-Original-Bacon%27 "https://www.hy-vee.com/aisles-online/p/50321/oscar-mayer-center-cut-original-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/50316/Oscar-Mayer-Thick-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/50316/Oscar-Mayer-Thick-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/50316/oscar-mayer-thick-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/2199421/Country-Smokehouse-Thick-Hickory-Smoked-Slab-Bacon'](https://www.hy-vee.com/aisles-online/p/2199421/Country-Smokehouse-Thick-Hickory-Smoked-Slab-Bacon%27 "https://www.hy-vee.com/aisles-online/p/2199421/country-smokehouse-thick-hickory-smoked-slab-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/104466/Hickory-Country-Bacon'](https://www.hy-vee.com/aisles-online/p/104466/Hickory-Country-Bacon%27 "https://www.hy-vee.com/aisles-online/p/104466/hickory-country-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/23975/HyVee-Hickory-House-Applewood-Naturally-Smoked-Thick-Sliced-Bacon'](https://www.hy-vee.com/aisles-online/p/23975/HyVee-Hickory-House-Applewood-Naturally-Smoked-Thick-Sliced-Bacon%27 "https://www.hy-vee.com/aisles-online/p/23975/hyvee-hickory-house-applewood-naturally-smoked-thick-sliced-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/23949/HyVee-Sweet-Smoked-Thick-Sliced-Bacon'](https://www.hy-vee.com/aisles-online/p/23949/HyVee-Sweet-Smoked-Thick-Sliced-Bacon%27 "https://www.hy-vee.com/aisles-online/p/23949/hyvee-sweet-smoked-thick-sliced-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/23963/HyVee-Fully-Cooked-Hickory-Smoked-Bacon'](https://www.hy-vee.com/aisles-online/p/23963/HyVee-Fully-Cooked-Hickory-Smoked-Bacon%27 "https://www.hy-vee.com/aisles-online/p/23963/hyvee-fully-cooked-hickory-smoked-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/11173/Hormel-Black-Label-Applewood-Thick-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/11173/Hormel-Black-Label-Applewood-Thick-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/11173/hormel-black-label-applewood-thick-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/21317/Farmland-Naturally-Applewood-Smoked-Classic-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/21317/Farmland-Naturally-Applewood-Smoked-Classic-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/21317/farmland-naturally-applewood-smoked-classic-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/21238/Farmland-Naturally-Hickory-Smoked-Thick-Cut-Bacon-Package'](https://www.hy-vee.com/aisles-online/p/21238/Farmland-Naturally-Hickory-Smoked-Thick-Cut-Bacon-Package%27 "https://www.hy-vee.com/aisles-online/p/21238/farmland-naturally-hickory-smoked-thick-cut-bacon-package%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/23948/HyVee-Lower-Sodium-Sweet-Smoked-Bacon'](https://www.hy-vee.com/aisles-online/p/23948/HyVee-Lower-Sodium-Sweet-Smoked-Bacon%27 "https://www.hy-vee.com/aisles-online/p/23948/hyvee-lower-sodium-sweet-smoked-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/458259/Wright-Naturally-Hickory-Smoked-Bacon'](https://www.hy-vee.com/aisles-online/p/458259/Wright-Naturally-Hickory-Smoked-Bacon%27 "https://www.hy-vee.com/aisles-online/p/458259/wright-naturally-hickory-smoked-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/11384/Hormel-Natural-Choice-Uncured-Original-Bacon-12-oz'](https://www.hy-vee.com/aisles-online/p/11384/Hormel-Natural-Choice-Uncured-Original-Bacon-12-oz%27 "https://www.hy-vee.com/aisles-online/p/11384/hormel-natural-choice-uncured-original-bacon-12-oz%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/2476490/Jimmy-Dean-FC-Hickory-Bacon'](https://www.hy-vee.com/aisles-online/p/2476490/Jimmy-Dean-FC-Hickory-Bacon%27 "https://www.hy-vee.com/aisles-online/p/2476490/jimmy-dean-fc-hickory-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/1646677/Smithfield-Hometown-Original-Bacon'](https://www.hy-vee.com/aisles-online/p/1646677/Smithfield-Hometown-Original-Bacon%27 "https://www.hy-vee.com/aisles-online/p/1646677/smithfield-hometown-original-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/53849/Farmland-Naturally-Hickory-Smoked-Lower-Sodium-Classic-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/53849/Farmland-Naturally-Hickory-Smoked-Lower-Sodium-Classic-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/53849/farmland-naturally-hickory-smoked-lower-sodium-classic-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/47121/Hormel-Black-Label-Maple-Bacon'](https://www.hy-vee.com/aisles-online/p/47121/Hormel-Black-Label-Maple-Bacon%27 "https://www.hy-vee.com/aisles-online/p/47121/hormel-black-label-maple-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/164627/Oscar-Mayer-Fully-Cooked-Original-Bacon-252-oz-Box'](https://www.hy-vee.com/aisles-online/p/164627/Oscar-Mayer-Fully-Cooked-Original-Bacon-252-oz-Box%27 "https://www.hy-vee.com/aisles-online/p/164627/oscar-mayer-fully-cooked-original-bacon-252-oz-box%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/23974/HyVee-Hickory-House-Hickory-Smoked-Thick-Sliced-Bacon'](https://www.hy-vee.com/aisles-online/p/23974/HyVee-Hickory-House-Hickory-Smoked-Thick-Sliced-Bacon%27 "https://www.hy-vee.com/aisles-online/p/23974/hyvee-hickory-house-hickory-smoked-thick-sliced-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/50319/Oscar-Mayer-Selects-Smoked-Uncured-Bacon'](https://www.hy-vee.com/aisles-online/p/50319/Oscar-Mayer-Selects-Smoked-Uncured-Bacon%27 "https://www.hy-vee.com/aisles-online/p/50319/oscar-mayer-selects-smoked-uncured-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/2471760/Jimmy-Dean-FC-Applewood-Smoked-Bacon'](https://www.hy-vee.com/aisles-online/p/2471760/Jimmy-Dean-FC-Applewood-Smoked-Bacon%27 "https://www.hy-vee.com/aisles-online/p/2471760/jimmy-dean-fc-applewood-smoked-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/16239/Oscar-Mayer-Center-Cut-Thick-Sliced-Bacon'](https://www.hy-vee.com/aisles-online/p/16239/Oscar-Mayer-Center-Cut-Thick-Sliced-Bacon%27 "https://www.hy-vee.com/aisles-online/p/16239/oscar-mayer-center-cut-thick-sliced-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/2214511/Hormel-Black-Label-Original-Thick-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/2214511/Hormel-Black-Label-Original-Thick-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/2214511/hormel-black-label-original-thick-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/1008152/Wright-Naturally-Smoked-Applewood-Bacon'](https://www.hy-vee.com/aisles-online/p/1008152/Wright-Naturally-Smoked-Applewood-Bacon%27 "https://www.hy-vee.com/aisles-online/p/1008152/wright-naturally-smoked-applewood-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/1813260/Smithfield-Naturally-Hickory-Smoked-Thick-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/1813260/Smithfield-Naturally-Hickory-Smoked-Thick-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/1813260/smithfield-naturally-hickory-smoked-thick-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/23976/HyVee-Hickory-House-Peppered-Naturally-Smoked-Thick-Sliced-Bacon'](https://www.hy-vee.com/aisles-online/p/23976/HyVee-Hickory-House-Peppered-Naturally-Smoked-Thick-Sliced-Bacon%27 "https://www.hy-vee.com/aisles-online/p/23976/hyvee-hickory-house-peppered-naturally-smoked-thick-sliced-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/21320/Farmland-Naturally-Applewood-Smoked-Thick-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/21320/Farmland-Naturally-Applewood-Smoked-Thick-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/21320/farmland-naturally-applewood-smoked-thick-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/21253/Farmland-Naturally-Hickory-Smoked-Extra-Thick-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/21253/Farmland-Naturally-Hickory-Smoked-Extra-Thick-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/21253/farmland-naturally-hickory-smoked-extra-thick-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/1255920/Hormel-Black-Label-Cherrywood-Thick-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/1255920/Hormel-Black-Label-Cherrywood-Thick-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/1255920/hormel-black-label-cherrywood-thick-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/57304/HyVee-Blue-Ribbon-Maple-Naturally-Smoked-Thick-Sliced-Bacon'](https://www.hy-vee.com/aisles-online/p/57304/HyVee-Blue-Ribbon-Maple-Naturally-Smoked-Thick-Sliced-Bacon%27 "https://www.hy-vee.com/aisles-online/p/57304/hyvee-blue-ribbon-maple-naturally-smoked-thick-sliced-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/21252/Farmland-Naturally-Hickory-Smoked-30-Less-Fat-Center-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/21252/Farmland-Naturally-Hickory-Smoked-30-Less-Fat-Center-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/21252/farmland-naturally-hickory-smoked-30-less-fat-center-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/2501872/Bourbon-And-Brown-Sugar-Slab-Bacon'](https://www.hy-vee.com/aisles-online/p/2501872/Bourbon-And-Brown-Sugar-Slab-Bacon%27 "https://www.hy-vee.com/aisles-online/p/2501872/bourbon-and-brown-sugar-slab-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/2516586/Hormel-Natural-ChoiceOriginal-Thick-Cut-Uncured-Bacon'](https://www.hy-vee.com/aisles-online/p/2516586/Hormel-Natural-ChoiceOriginal-Thick-Cut-Uncured-Bacon%27 "https://www.hy-vee.com/aisles-online/p/2516586/hormel-natural-choiceoriginal-thick-cut-uncured-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/21319/Farmland-Naturally-Hickory-Smoked-Double-Smoked-Classic-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/21319/Farmland-Naturally-Hickory-Smoked-Double-Smoked-Classic-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/21319/farmland-naturally-hickory-smoked-double-smoked-classic-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/317829/Des-Moines-Bacon-And-Meat-Company-Hardwood-Smoked-Uncured-Country-Bacon'](https://www.hy-vee.com/aisles-online/p/317829/Des-Moines-Bacon-And-Meat-Company-Hardwood-Smoked-Uncured-Country-Bacon%27 "https://www.hy-vee.com/aisles-online/p/317829/des-moines-bacon-and-meat-company-hardwood-smoked-uncured-country-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/1255919/Hormel-Black-Label-Jalapeno-Thick-Cut-Bacon'](https://www.hy-vee.com/aisles-online/p/1255919/Hormel-Black-Label-Jalapeno-Thick-Cut-Bacon%27 "https://www.hy-vee.com/aisles-online/p/1255919/hormel-black-label-jalapeno-thick-cut-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/3538865/Oscar-Mayer-Bacon-Thick-Cut-Applewood'](https://www.hy-vee.com/aisles-online/p/3538865/Oscar-Mayer-Bacon-Thick-Cut-Applewood%27 "https://www.hy-vee.com/aisles-online/p/3538865/oscar-mayer-bacon-thick-cut-applewood%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/317830/Des-Moines-Bacon-And-Meat-Company-Applewood-Smoked-Bacon'](https://www.hy-vee.com/aisles-online/p/317830/Des-Moines-Bacon-And-Meat-Company-Applewood-Smoked-Bacon%27 "https://www.hy-vee.com/aisles-online/p/317830/des-moines-bacon-and-meat-company-applewood-smoked-bacon%27"),\
+
+                     '[https://www.hy-vee.com/aisles-online/p/3308731/Oscar-Mayer-Natural-Fully-Cooked-Uncured-Bacon'](https://www.hy-vee.com/aisles-online/p/3308731/Oscar-Mayer-Natural-Fully-Cooked-Uncured-Bacon%27 "https://www.hy-vee.com/aisles-online/p/3308731/oscar-mayer-natural-fully-cooked-uncured-bacon%27")\
+
+                     \]\
+
+        self.eggsUrls = \['[https://www.hy-vee.com/aisles-online/p/57236/HyVee-Grade-A-Large-Eggs'](https://www.hy-vee.com/aisles-online/p/57236/HyVee-Grade-A-Large-Eggs%27 "https://www.hy-vee.com/aisles-online/p/57236/hyvee-grade-a-large-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/23899/HyVee-Grade-A-Large-Eggs'](https://www.hy-vee.com/aisles-online/p/23899/HyVee-Grade-A-Large-Eggs%27 "https://www.hy-vee.com/aisles-online/p/23899/hyvee-grade-a-large-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/715446/Farmers-Hen-House-Free-Range-Organic-Large-Brown-Grade-A-Eggs'](https://www.hy-vee.com/aisles-online/p/715446/Farmers-Hen-House-Free-Range-Organic-Large-Brown-Grade-A-Eggs%27 "https://www.hy-vee.com/aisles-online/p/715446/farmers-hen-house-free-range-organic-large-brown-grade-a-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/2849570/Thats-Smart-Large-Shell-Eggs'](https://www.hy-vee.com/aisles-online/p/2849570/Thats-Smart-Large-Shell-Eggs%27 "https://www.hy-vee.com/aisles-online/p/2849570/thats-smart-large-shell-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/31351/Farmers-Hen-House-Free-Range-Grade-A-Large-Brown-Eggs'](https://www.hy-vee.com/aisles-online/p/31351/Farmers-Hen-House-Free-Range-Grade-A-Large-Brown-Eggs%27 "https://www.hy-vee.com/aisles-online/p/31351/farmers-hen-house-free-range-grade-a-large-brown-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/23900/HyVee-Grade-A-Extra-Large-Eggs'](https://www.hy-vee.com/aisles-online/p/23900/HyVee-Grade-A-Extra-Large-Eggs%27 "https://www.hy-vee.com/aisles-online/p/23900/hyvee-grade-a-extra-large-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/71297/Egglands-Best-Farm-Fresh-Grade-A-Large-Eggs'](https://www.hy-vee.com/aisles-online/p/71297/Egglands-Best-Farm-Fresh-Grade-A-Large-Eggs%27 "https://www.hy-vee.com/aisles-online/p/71297/egglands-best-farm-fresh-grade-a-large-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/36345/Egglands-Best-Grade-A-Large-Eggs'](https://www.hy-vee.com/aisles-online/p/36345/Egglands-Best-Grade-A-Large-Eggs%27 "https://www.hy-vee.com/aisles-online/p/36345/egglands-best-grade-a-large-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/3192325/HyVee-Free-Range-Large-Brown-Egg-Grade-A'](https://www.hy-vee.com/aisles-online/p/3192325/HyVee-Free-Range-Large-Brown-Egg-Grade-A%27 "https://www.hy-vee.com/aisles-online/p/3192325/hyvee-free-range-large-brown-egg-grade-a%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/23903/HyVee-Grade-A-Jumbo-Eggs'](https://www.hy-vee.com/aisles-online/p/23903/HyVee-Grade-A-Jumbo-Eggs%27 "https://www.hy-vee.com/aisles-online/p/23903/hyvee-grade-a-jumbo-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/3192323/HyVee-Cage-Free-Large-Brown-Egg-Grade-A'](https://www.hy-vee.com/aisles-online/p/3192323/HyVee-Cage-Free-Large-Brown-Egg-Grade-A%27 "https://www.hy-vee.com/aisles-online/p/3192323/hyvee-cage-free-large-brown-egg-grade-a%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/36346/Egglands-Best-Cage-Free-Brown-Grade-A-Large-Eggs'](https://www.hy-vee.com/aisles-online/p/36346/Egglands-Best-Cage-Free-Brown-Grade-A-Large-Eggs%27 "https://www.hy-vee.com/aisles-online/p/36346/egglands-best-cage-free-brown-grade-a-large-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/3192322/HyVee-Cage-Free-Large-Brown-Egg-Grade-A'](https://www.hy-vee.com/aisles-online/p/3192322/HyVee-Cage-Free-Large-Brown-Egg-Grade-A%27 "https://www.hy-vee.com/aisles-online/p/3192322/hyvee-cage-free-large-brown-egg-grade-a%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/858343/HyVee-Cage-Free-Omega3-Grade-A-Large-Brown-Eggs'](https://www.hy-vee.com/aisles-online/p/858343/HyVee-Cage-Free-Omega3-Grade-A-Large-Brown-Eggs%27 "https://www.hy-vee.com/aisles-online/p/858343/hyvee-cage-free-omega3-grade-a-large-brown-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/1901565/Farmers-Hen-House-Pasture-Raised-Organic-Grade-A-Large-Brown-Eggs'](https://www.hy-vee.com/aisles-online/p/1901565/Farmers-Hen-House-Pasture-Raised-Organic-Grade-A-Large-Brown-Eggs%27 "https://www.hy-vee.com/aisles-online/p/1901565/farmers-hen-house-pasture-raised-organic-grade-a-large-brown-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/60364/HyVee-HealthMarket-Organic-Grade-A-Large-Eggs'](https://www.hy-vee.com/aisles-online/p/60364/HyVee-HealthMarket-Organic-Grade-A-Large-Eggs%27 "https://www.hy-vee.com/aisles-online/p/60364/hyvee-healthmarket-organic-grade-a-large-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/71298/Egglands-Best-Extra-Large-Eggs'](https://www.hy-vee.com/aisles-online/p/71298/Egglands-Best-Extra-Large-Eggs%27 "https://www.hy-vee.com/aisles-online/p/71298/egglands-best-extra-large-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/23902/HyVee-Grade-A-Extra-Large-Eggs'](https://www.hy-vee.com/aisles-online/p/23902/HyVee-Grade-A-Extra-Large-Eggs%27 "https://www.hy-vee.com/aisles-online/p/23902/hyvee-grade-a-extra-large-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/453006/Egglands-Best-XL-Eggs'](https://www.hy-vee.com/aisles-online/p/453006/Egglands-Best-XL-Eggs%27 "https://www.hy-vee.com/aisles-online/p/453006/egglands-best-xl-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/2668550/HyVee-One-Step-Pasture-Raised-Large-Brown-Eggs'](https://www.hy-vee.com/aisles-online/p/2668550/HyVee-One-Step-Pasture-Raised-Large-Brown-Eggs%27 "https://www.hy-vee.com/aisles-online/p/2668550/hyvee-one-step-pasture-raised-large-brown-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/66622/Farmers-Hen-House-Jumbo-Brown-Eggs'](https://www.hy-vee.com/aisles-online/p/66622/Farmers-Hen-House-Jumbo-Brown-Eggs%27 "https://www.hy-vee.com/aisles-online/p/66622/farmers-hen-house-jumbo-brown-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/3274825/Nellies-Eggs-Brown-Free-Range-Large'](https://www.hy-vee.com/aisles-online/p/3274825/Nellies-Eggs-Brown-Free-Range-Large%27 "https://www.hy-vee.com/aisles-online/p/3274825/nellies-eggs-brown-free-range-large%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/57235/HyVee-Grade-A-Medium-Eggs'](https://www.hy-vee.com/aisles-online/p/57235/HyVee-Grade-A-Medium-Eggs%27 "https://www.hy-vee.com/aisles-online/p/57235/hyvee-grade-a-medium-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/2437128/Pete-And-Gerrys-Eggs-Organic-Brown-Free-Range-Large'](https://www.hy-vee.com/aisles-online/p/2437128/Pete-And-Gerrys-Eggs-Organic-Brown-Free-Range-Large%27 "https://www.hy-vee.com/aisles-online/p/2437128/pete-and-gerrys-eggs-organic-brown-free-range-large%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/36347/Egglands-Best-Organic-Cage-Free-Grade-A-Large-Brown-Eggs'](https://www.hy-vee.com/aisles-online/p/36347/Egglands-Best-Organic-Cage-Free-Grade-A-Large-Brown-Eggs%27 "https://www.hy-vee.com/aisles-online/p/36347/egglands-best-organic-cage-free-grade-a-large-brown-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/2698224/Nellies-Free-Range-Eggs-Large-Fresh-Brown-Grade-A'](https://www.hy-vee.com/aisles-online/p/2698224/Nellies-Free-Range-Eggs-Large-Fresh-Brown-Grade-A%27 "https://www.hy-vee.com/aisles-online/p/2698224/nellies-free-range-eggs-large-fresh-brown-grade-a%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/57237/HyVee-Grade-A-Large-Eggs'](https://www.hy-vee.com/aisles-online/p/57237/HyVee-Grade-A-Large-Eggs%27 "https://www.hy-vee.com/aisles-online/p/57237/hyvee-grade-a-large-eggs%27"),\
+
+                    '[https://www.hy-vee.com/aisles-online/p/190508/Farmers-Hen-House-Organic-Large-Brown-Eggs'](https://www.hy-vee.com/aisles-online/p/190508/Farmers-Hen-House-Organic-Large-Brown-Eggs%27 "https://www.hy-vee.com/aisles-online/p/190508/farmers-hen-house-organic-large-brown-eggs%27")\
+
+                   \]\
+
+        self.tomatoesUrls = \['[https://www.hy-vee.com/aisles-online/p/37174/'\]](https://www.hy-vee.com/aisles-online/p/37174/%27] "https://www.hy-vee.com/aisles-online/p/37174/%27]")\
+
+        self.count = 0
+
+ 
+
+    def dataWait(self, xpath):\
+
+        ignored_exceptions=(NoSuchElementException,StaleElementReferenceException,)\
+
+        element = WebDriverWait(self.driver, 3, ignored_exceptions=ignored_exceptions).until(EC.visibility_of_element_located((By.XPATH, xpath))).text\
+
+        return element\
+\
+
+    def dataWaitForAll(self, xpath):\
+
+            ignored_exceptions=(NoSuchElementException,StaleElementReferenceException,)\
+
+            elements = WebDriverWait(self.driver, 30, ignored_exceptions=ignored_exceptions).until(EC.visibility_of_all_elements_located((By.XPATH, xpath)))\
+
+            return len(elements)
+
+ 
+
+    def restart(self):\
+
+        self.driver.close()\
+
+        self.driver.quit()\
+
+        self.driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install(), log_path=path.devnull))
+
+ 
+
+    def start_requests( self ):\
+
+        attemps = 3
+
+ 
+
+        self.count = 0\
+
+        for trying in range(attemps):\
+
+            try:\
+
+                self.requestBacon()\
+
+                print("Bacon Finished")\
+
+                break\
+
+            except:\
+
+                print("Bacon Export Failed Recovering extraction and continueing")\
+
+                self.restart()        \
+
+        self.count = 0\
+
+        for trying in range(attemps):\
+
+            try:\
+
+                self.requestEgg()\
+
+                print("Eggs Finished")\
+
+                break\
+
+            except:\
+
+                print("Eggs Export Failed. Recovering extraction and continueing")\
+
+                self.restart()  \
+\
+
+        self.count = 0\
+
+        for trying in range(attemps):\
+
+            try:\
+
+                self.requestTomato()\
+
+                print("Heirloom Tomatoes Successfully Finished")\
+
+                break\
+
+            except:\
+
+                print("Tomatoes Export Failed Recovering extraction and continueing")\
+
+                self.restart()\
+\
+
+        self.driver.close()\
+
+        self.driver.quit()
+
+ 
+
+    def requestBacon( self ):\
+
+        total = len(self.baconUrls)\
+
+        while self.count \< total:\
+
+            url = self.baconUrls\[self.count\]\
+
+            self.driver.get(url)\
+
+            time.sleep(1) \# marionette Error Fix\
+
+            pXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p'\
+
+            nameXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/h1'\
+
+            priceXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p\[1\]'\
+
+            sale = self.dataWaitForAll(pXpath) #Ensures the page is loaded\
+
+            name = self.dataWait(nameXpath) \
+
+            price = self.dataWait(priceXpath)\
+
+            if sale == 2:\
+
+                weightXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p\[2\]'\
+
+                weight = self.dataWait(weightXpath)\
+
+                self.baconFrame.loc\[len(self.baconFrame)\] = \[name,\
+
+                                                price,\
+
+                                                "False",\
+
+                                                weight,\
+
+                                                url\]\
+
+            elif sale == 3:\
+
+                prevPriceXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p\[2\]'\
+
+                weightXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p\[3\]'\
+
+                prevPrice = self.dataWait(prevPriceXpath)\
+
+                weight = self.dataWait(weightXpath)\
+
+                self.baconFrame.loc\[len(self.baconFrame)\] = \[name,\
+
+                                                price,\
+
+                                                prevPrice,\
+
+                                                weight,\
+
+                                                url\]\
+
+            else:\
+
+                \# Catch if there is anything missing elements\
+
+                self.baconFrame.loc\[len(self.baconFrame)\] = \["SKIPPED",\
+
+                                                   "SKIPPED",\
+
+                                                   "SKIPPED",\
+
+                                                   "SKIPPED",\
+
+                                                   url\]\
+
+            self.count += 1\
+
+            print("Bacon item added", self.count," of ", total, " :  ", name)\
+
+        self.count = 0
+
+ 
+
+    def requestEgg(self): \
+
+        total = len(self.eggsUrls)\
+
+        while self.count \< total:\
+
+            url = self.eggsUrls\[self.count\]\
+
+            self.driver.get(url)\
+
+            time.sleep(1) \# marionette Error Fix\
+
+            pXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p'\
+
+            nameXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/h1'\
+
+            priceXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p\[1\]'\
+
+            sale = self.dataWaitForAll(pXpath) #Ensures the page is loaded\
+
+            name = self.dataWait(nameXpath) \
+
+            price = self.dataWait(priceXpath)\
+
+            if sale == 2:\
+
+                weightXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p\[2\]'\
+
+                weight = self.dataWait(weightXpath)\
+
+                self.eggFrame.loc\[len(self.eggFrame)\] = \[name,\
+
+                                                price,\
+
+                                                "False",\
+
+                                                weight,\
+
+                                                url\]\
+
+            elif sale == 3:\
+
+                prevPriceXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p\[2\]'\
+
+                weightXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p\[3\]'\
+
+                prevPrice = self.dataWait(prevPriceXpath)\
+
+                weight = self.dataWait(weightXpath)\
+
+                self.eggFrame.loc\[len(self.eggFrame)\] = \[name,\
+
+                                                price,\
+
+                                                prevPrice,\
+
+                                                weight,\
+
+                                                url\]\
+
+            else:\
+
+                \# Catch if there is anything missing elements\
+
+                self.eggFrame.loc\[len(self.eggFrame)\] = \["SKIPPED",\
+
+                                                   "SKIPPED",\
+
+                                                   "SKIPPED",\
+
+                                                   "SKIPPED",\
+
+                                                   url\]\
+
+            self.count += 1\
+
+            print("Eggs item added", self.count," of ", total, " :  ", name)\
+
+        self.count = 0
+
+ 
+
+    def requestTomato( self ):\
+
+        total = len(self.tomatoesUrls)\
+
+        while self.count \< total:\
+
+            url = self.tomatoesUrls\[self.count\]\
+
+            self.driver.get(url)\
+
+            time.sleep(1) \# marionette Error Fix\
+
+            pXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p'\
+
+            nameXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/h1'\
+
+            priceXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p\[1\]'\
+
+            sale = self.dataWaitForAll(pXpath) #Ensures the page is loaded\
+
+            name = self.dataWait(nameXpath) \
+
+            price = self.dataWait(priceXpath)\
+
+            if sale == 2:\
+
+                weightXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p\[2\]'\
+
+                weight = self.dataWait(weightXpath)\
+
+                self.tomatoFrame.loc\[len(self.tomatoFrame)\] = \[name,\
+
+                                                price,\
+
+                                                "False",\
+
+                                                weight,\
+
+                                                url\]\
+
+            elif sale == 3:\
+
+                prevPriceXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p\[2\]'\
+
+                weightXpath = '//\*\[contains(\@class, "product-details_detailsContainer")\]/p\[3\]'\
+
+                prevPrice = self.dataWait(prevPriceXpath)\
+
+                weight = self.dataWait(weightXpath)\
+
+                self.tomatoFrame.loc\[len(self.tomatoFrame)\] = \[name,\
+
+                                                price,\
+
+                                                prevPrice,\
+
+                                                weight,\
+
+                                                url\]\
+
+            else:\
+
+                \# Catch if there is anything missing elements\
+
+                self.tomatoFrame.loc\[len(self.tomatoFrame)\] = \["SKIPPED",\
+
+                                                   "SKIPPED",\
+
+                                                   "SKIPPED",\
+
+                                                   "SKIPPED",\
+
+                                                   url\]\
+
+            self.count += 1\
+
+            print("Tomato item added", self.count,"of", total, ":  ", name)\
+
+        self.count = 0
+
+ 
+
+\# Start\
+
+spider = HyveeSpider()\
+
+spider.start_requests()\
+
+#Adds the date that the data was scraped\
+
+currentDate = str(datetime(datetime.today().year, datetime.today().month, datetime.today().day))\[:-8\]\
+
+#To CSV files\
+
+spider.baconFrame.to_csv(currentDate + "Hyvee Bacon.csv")\
+
+spider.eggFrame.to_csv(currentDate + "Hyvee Egg.csv")\
+
+spider.tomatoFrame.to_csv(currentDate + "Hyvee Heirloom Tomatoes.csv")
+
+![](images/MicrosoftTeams-image%20(7).png)
+
+![](images/MicrosoftTeams-image%20(11).png)
+
+-   Week 4 (Current Week): Data Collection and Preprocessing 
+
+During this week, the team is focused on collecting the necessary data from identified sources. The collected data will undergo preprocessing tasks such as cleaning, transforming, and formatting to ensure its suitability for analysis and modeling. 
+
+-   Week 5 (Next Week): Exploratory Data Analysis and Feature Engineering 
+
+In the upcoming week, the team will perform exploratory data analysis to gain insights into the collected data. Statistical techniques and visualization methods will be employed to understand the distribution, patterns, and relationships within the data. Feature engineering techniques will also be applied to extract relevant features and create new variables that enhance the predictive power of the model. 
+
+-   Week 6: Model Development - Building and Training the Machine Learning Model 
+
+Following the exploratory data analysis, the team will move on to developing the machine learning model for demand forecasting. Suitable algorithms will be selected based on the problem's nature and the available data. The chosen model(s) will be implemented and trained using the preprocessed data, with model parameters fine-tuned for optimal performance. 
+
+ 
+
+-   Week 7: Model Evaluation, Fine-tuning, and Validation 
+
+During this phase, the trained models will be rigorously evaluated to measure their performance and predictive capabilities. Various evaluation metrics will be calculated to assess the model's effectiveness. The team will further fine-tune the model, adjusting parameters or exploring ensemble techniques to improve its performance. Validation techniques, such as holdout sets or cross-validation, will be employed to ensure the model's generalizability and reliability. 
+
+ 
+
+-   Week 8: Final Testing, Presentation Preparation, and Documentation 
+
+In the final week, the developed model will undergo thorough testing to ensure its stability and accuracy in predicting demand for local food products. The team will prepare a comprehensive presentation summarizing the project's objectives, methodology, findings, and recommendations. Documentation of the project, including the data collection process, preprocessing steps, modeling techniques, and results, will also be completed. 
+
+ 
+
+These future and next steps will allow the team to progress through the remaining weeks, effectively building and evaluating the machine learning model for demand forecasting in the local food industry. 
+
+ 
+
+ 
+
+**Future scope:**  
+
+the future scope of the project lies in expanding the application's capabilities, incorporating additional data sources, refining the machine learning models, and fostering collaboration within the local food ecosystem. By continually improving and adapting the solution, the project can contribute to the sustainable growth and success of Iowa's local food producers. 
